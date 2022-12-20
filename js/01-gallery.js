@@ -1,6 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
-console.log(galleryItems);
 const listGallery = document.querySelector(".gallery");
 galleryItems.forEach((img) => {
   listGallery.insertAdjacentHTML(
@@ -30,13 +29,14 @@ function modalImg(event) {
   const instance = basicLightbox.create(`
 <img src="${event.target.getAttribute("data-source")}">`);
   instance.show();
-}
 
-document.addEventListener("keydown", escapeKey);
-function escapeKey(event) {
-  if (event.key === "Escape") {
-    instance.close();
-    document.removeEventListener("keydown", escapeKey);
-    console.log("esc"); 
+  document.addEventListener("keydown", escapeKey);
+  function escapeKey(event) {
+    if (event.key === "Escape") {
+      instance.close();
+      document.removeEventListener("keydown", escapeKey);
+      console.log("esc");
+    }
   }
 }
+console.log(galleryItems);
